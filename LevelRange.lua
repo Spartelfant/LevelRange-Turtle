@@ -383,7 +383,7 @@ function LevelRange_WorldMapButton_OnUpdate(arg1)
     lLR_OldUpdate(arg1);
 
     local areaNameRaw = WorldMapFrame.areaName or "";
-    local areaNameTrimmed = string.match(areaNameRaw, "^%s*(.-)%s*$"); -- 2.0.6: Added code to trim whitespace to deal with patch 1.18 bug for Northwind zone: In-game name contains trailing space 'Northwind '.
+    local areaNameTrimmed = string.gsub(areaNameRaw, "^%s*(.-)%s*$","%1"); -- 2.0.6: Added code to trim whitespace to deal with patch 1.18 bug for Northwind zone: In-game name contains trailing space 'Northwind '.
     local zoneNum = GetCurrentMapZone();
 
     -- Zone name equivalence map
